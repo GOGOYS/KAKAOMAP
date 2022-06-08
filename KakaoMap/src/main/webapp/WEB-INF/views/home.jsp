@@ -208,9 +208,9 @@
 			<div class="option">
 				<div>
 					<form onsubmit="searchPlaces(); return false;">
-						<button onclick="food()" type="submit" value="북광주세무서 맛집"
+						<button onclick="food()" type="submit" value="서울월드컵경기장 숙박"
 							id="keyword1">식당</button>
-						<button onclick="bad()" type="submit" value="북광주세무서 숙박"
+						<button onclick="bad()" type="submit" value="서울월드컵경기장 식당"
 							id="keyword2">숙박</button>
 					</form>
 				</div>
@@ -223,6 +223,6 @@
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=665cdafd23b2d9fb009a5271b16ded99&libraries=services"></script>
-	<script src="${rootPath}/static/js/map.js"></script>
+	<script src="${rootPath}/static/js/map.js?ver=2022-06-08-007"></script>
 </body>
 </html>

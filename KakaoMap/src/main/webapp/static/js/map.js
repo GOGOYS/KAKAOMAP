@@ -1,6 +1,6 @@
 var markers = [];
 
-var mapcenter = new kakao.maps.LatLng(35.160028805690565,126.91016363439223);// 좌표값 지도변수에 담기
+var mapcenter = new kakao.maps.LatLng(37.56823, 126.897243);// 좌표값 지도변수에 담기
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
@@ -22,7 +22,7 @@ function setDraggable(draggable) {
 }
 
 //메인 중심좌표 마커 표시
-var markerPosition  = new kakao.maps.LatLng(35.160028805690565,126.91016363439223); 
+var markerPosition  = new kakao.maps.LatLng(37.56823, 126.897243); 
 
 // 마커를 생성
 var marker = new kakao.maps.Marker({
@@ -38,7 +38,7 @@ marker.setMap(map);
 var circle = new kakao.maps.Circle({
     map: map,
     center : mapcenter, //원의 중심
-    radius: 1000, //원의 반지름 1km
+    radius: 2000, //원의 반지름 1km
     strokeWeight: 10, //선의 두께
     strokeColor: '#ff1100', // 선색상
     strokeOpacity: 0.8, //선 투명도
@@ -87,7 +87,7 @@ function placesSearchCB(data, status, pagination) {
         // 페이지 번호를 표출
         displayPagination(pagination);
 
-        //카카오 검색 라이브러리 가져온거여서 오류검사 지우면 지도가 안뜸 ㅠ
+        //카카오 검색 라이브러리 가져온거여서 오류검사 지우면 지도가 안뜸 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
 
         alert('검색 결과가 존재하지 않습니다.');
