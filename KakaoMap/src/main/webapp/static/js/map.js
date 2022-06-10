@@ -5,7 +5,7 @@ var mapcenter = new kakao.maps.LatLng(37.56823, 126.897243);// 좌표값 지도�
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center:  mapcenter,// 지도의 중심좌표
-        level: 5// 지도의 확대 레벨
+        level: 6// 지도의 확대 레벨
     };  
     
 // 지도를 생성
@@ -38,8 +38,8 @@ marker.setMap(map);
 var circle = new kakao.maps.Circle({
     map: map,
     center : mapcenter, //원의 중심
-    radius: 2000, //원의 반지름 1km
-    strokeWeight: 10, //선의 두께
+    radius: 3000, //원의 반지름 3km
+    strokeWeight: 5, //선의 두께
     strokeColor: '#ff1100', // 선색상
     strokeOpacity: 0.8, //선 투명도
     strokeStyle: 'solid', //배경색 
@@ -59,20 +59,23 @@ var infowindow = new kakao.maps.InfoWindow({zIndex:1});
  //기본으로 식당 부르기
  food();
 
+//식당 리스트 호출
 function food(){
 	var keyword1 = document.getElementById('keyword1').value;
 	
 	ps.keywordSearch( keyword1, placesSearchCB); 
-	var el = document.createElement('a');
-    el.href = "#";
+	var a = document.createElement('a');
+    a.href = "#";
 }
+
+//숙소 리스트 호출
 function bad(){
 	var keyword2 = document.getElementById('keyword2').value;
 	
     
 	ps.keywordSearch( keyword2, placesSearchCB); 
-	var el = document.createElement('a');
-    el.href = "#";
+	var a = document.createElement('a');
+    a.href = "#";
 	
 }
 
@@ -87,9 +90,8 @@ function placesSearchCB(data, status, pagination) {
         // 페이지 번호를 표출
         displayPagination(pagination);
 
-        //카카오 검색 라이브러리 가져온거여서 오류검사 지우면 지도가 안뜸 
+        
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-
         alert('검색 결과가 존재하지 않습니다.');
         return;
 
