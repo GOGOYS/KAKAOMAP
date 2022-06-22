@@ -9,3 +9,4 @@ btn_lodgment.addEventListener("click", () => {
   btn_lodgment.classList.add("click");
   btn_food.classList.remove("click");
 });
+

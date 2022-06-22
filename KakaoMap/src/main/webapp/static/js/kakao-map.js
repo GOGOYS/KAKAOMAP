@@ -116,9 +116,9 @@ var marker = new kakao.maps.Marker({
             // 마커와 검색결과 항목에 mouseover 했을때
             // 해당 장소에 인포윈도우에 장소명을 표시합니다
             // mouseout 했을 때는 인포윈도우를 닫습니다
-            (function(marker, title) {
+            (function(marker, title,addr,roadAddr, phone) {
                 kakao.maps.event.addListener(marker, 'mouseover', function() {
-                    displayInfowindow(marker, title);
+                    displayInfowindow(marker,title,addr,roadAddr,phone);
                 });
 
                 kakao.maps.event.addListener(marker, 'mouseout', function() {
@@ -126,13 +126,14 @@ var marker = new kakao.maps.Marker({
                 });
 
                 itemEl.onmouseover =  function () {
-                    displayInfowindow(marker, title);
+                    displayInfowindow(marker,title,addr,roadAddr,phone);
                 };
 
                 itemEl.onmouseout =  function () {
                     infowindow.close();
                 };
-            })(marker, places[i].place_name);
+            })(marker, places[i].place_name,places[i].road_address_name,
+                places[i].road_address_name,places[i].phone);
 
             fragment.appendChild(itemEl);
         }
@@ -230,8 +231,22 @@ var marker = new kakao.maps.Marker({
 
     // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
     // 인포윈도우에 장소명을 표시합니다
-    function displayInfowindow(marker, title) {
-        var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+    function displayInfowindow(marker, title, addr, roadAddr, phone) {
+        var content = '<div class="map-view-wrap">' + 
+            '    <div class="map-view-info">' + 
+            '        <div class="map-view-title">' + 
+                        title +
+            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+            '        </div>' + 
+            '        <div class="map-view-body">' + 
+            '            <div class="map-view-desc">' + 
+            '                <div class="map-view-addr">'+ addr +'</div>' + 
+            '                <div class="map-view-roadAddr">'+ roadAddr+'</div>' + 
+            '                <div class="map-view-phone">'+ phone+'</div>' +
+            '            </div>' + 
+            '        </div>' + 
+            '    </div>' +    
+            '</div>';
 
         infowindow.setContent(content);
         infowindow.open(map, marker);

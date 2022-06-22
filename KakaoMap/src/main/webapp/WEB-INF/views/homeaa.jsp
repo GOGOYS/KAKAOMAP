@@ -180,7 +180,7 @@
 	    </div>
 	</div>
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=665cdafd23b2d9fb009a5271b16ded99&libraries=services"></script>
-<script src="${rootPath}/static/js/kakao-map.js"></script>
+<script src="${rootPath}/static/js/kakao-map.js?ver=2022-06-22-008"></script>
 <script src="${rootPath}/static/js/btn.js?var=2022-06-15-002"></script>
 
 
