@@ -232,21 +232,19 @@ var marker = new kakao.maps.Marker({
     // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
     // 인포윈도우에 장소명을 표시합니다
     function displayInfowindow(marker, title, addr, roadAddr, phone) {
-        var content = '<div class="map-view-wrap">' + 
+        var content =  
             '    <div class="map-view-info">' + 
-            '        <div class="map-view-title">' + 
-                        title +
-            '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+            '        <div class="map-view-head">' + 
+            '            <div class="map-view-title">' + title + '</div>'
+            '            <div class="map-view-btn-close" onclick="closeOverlay()" title="닫기"></div>' + 
             '        </div>' + 
             '        <div class="map-view-body">' + 
-            '            <div class="map-view-desc">' + 
-            '                <div class="map-view-addr">'+ addr +'</div>' + 
-            '                <div class="map-view-roadAddr">'+ roadAddr+'</div>' + 
-            '                <div class="map-view-phone">'+ phone+'</div>' +
-            '            </div>' + 
+            '            <div class="map-view-addr">'+ addr +'</div>' + 
+            '            <div class="map-view-roadAddr">'+ roadAddr+'</div>' + 
+            '            <div class="map-view-phone">'+ phone+'</div>' +
             '        </div>' + 
-            '    </div>' +    
-            '</div>';
+            '    </div>';    
+
 
         infowindow.setContent(content);
         infowindow.open(map, marker);
